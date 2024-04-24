@@ -1,0 +1,39 @@
+linters-settings:
+  gofmt:
+    simplify: true
+  gocyclo:
+    min-complexity: 20
+  misspell:
+    locale: US
+  dupl:
+    threshold: 100
+
+linters:
+  enable:
+    - govet
+    - gofmt
+    - goimports
+    - gocyclo
+    - misspell
+    - dupl
+    - unconvert
+    - ineffassign
+    - errcheck
+    - staticcheck
+    - unused
+    - typecheck
+
+issues:
+  exclude-rules:
+    - text: "weak cryptographic primitive"
+      linters:
+        - gosec
+    - path: _test\.go
+      linters:
+        - govet
+        - dupl
+        - errcheck
+
+output:
+  print-issued-lines: true
+  print-linter-name: true
